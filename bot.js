@@ -92,7 +92,7 @@ client.on('guildMemberAdd', member => {
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const logChannel = member.guild.channels.find(channel => channel.name === "welcome");
+    const logChannel = member.guild.channels.find(channel => channel.name === "invites");
     logChannel.send(`${member} **Invited by:** <@${inviter.id}>`);
   });
 });
@@ -136,15 +136,6 @@ client.on("guildMemberAdd", m => {
 
 
 
-////////////////////////////////اشياء اخري
-
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  **hello man**:rose: 
-:crown:name of mumb  ${member}:crown:  
-you are nbr ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
 
 
 
