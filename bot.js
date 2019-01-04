@@ -245,13 +245,12 @@ client.on("guildMemberAdd", m => {
 
 
 
---------------------------------------------------------------------------------
-
+//////////////////////////////////////////////////////
 
 client.on("guildMemberAdd", member => { 
         if(member.guild.id === "526852760101060609") { 
 setTimeout(function(){ 
-  const channel = member.guild.channels.find('id', '526852760101060609');  
+  const channel = member.guild.channels.find('id', '528047734117105685');  
 if (!channel) return; 
   channel.send(`**Welcome To [__King Giftes__]:shopping_cart:** ❤️ , ${member}`) 
 }, 5000);  
