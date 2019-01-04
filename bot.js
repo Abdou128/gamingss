@@ -245,6 +245,44 @@ client.on("guildMemberAdd", m => {
 
 
 
+--------------------------------------------------------------------------------
+
+
+client.on("guildMemberAdd", member => { 
+        if(member.guild.id === "526852760101060609") { 
+setTimeout(function(){ 
+  const channel = member.guild.channels.find('id', '526852760101060609');  
+if (!channel) return; 
+  channel.send(`**Welcome To [__King Giftes__]:shopping_cart:** ❤️ , ${member}`) 
+}, 5000);  
+}});  
+
+
+
+const invites = {};
+
+const wait = require('util').promisify(setTimeout);
+
+client.on('ready', () => {
+  wait(1000);
+
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});
+
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const logChannel = member.guild.channels.find(channel => channel.name === "chat");
+    logChannel.send(`${member} **Invited by:** <@${inviter.id}>`);
+  });
+});
 
 
 
