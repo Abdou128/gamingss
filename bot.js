@@ -385,7 +385,7 @@ hours = 12;
                        .addField('Giveaway Ended !🎉',`Winners : ${gFilter} \nEnded at :`)
                        .setTimestamp()
                      m.edit('** 🎉 GIVEAWAY ENDED 🎉**' , {embed: endEmbed});
-                    message.guild.channels.find("name" , room).send(`**Congratulations ${gFilter}! You won The \`${title}\`**` , {embed: {}})
+                    message.guild.channels.find("name" , room).send(`**تهانينا ${gFilter}! لقد فزت ب \`${title}\`**` , {embed: {}})
                 }, ms(duration));
             });
                 } catch(e) {
